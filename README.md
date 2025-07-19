@@ -1,3 +1,141 @@
+# 📘 User API Documentation
+
+This module handles all user-related operations through RESTful API endpoints.
+
+## 📂 Base URL
+`/api/v1/users`
+
+---
+
+## 🔍 1. Get All Users
+
+**Request:**  
+`GET /api/v1/users`
+
+**Response:**
+```json
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+]
+```
+
+---
+
+## 🔎 2. Get User Details
+
+**Request:**  
+`GET /api/v1/users/{id}`
+
+**Response:**
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+
+**Error Response (404):**
+```json
+{
+  "success": false,
+  "message": "Not found"
+}
+```
+
+---
+
+## ✏️ 3. Create New User
+
+**Request:**  
+`POST /api/v1/users`
+
+**Request Body:**
+```json
+{
+  "name": "New User",
+  "email": "newuser@example.com",
+  "password": "secret"
+}
+```
+
+**Response:**
+```json
+{
+  "data": {
+    "id": 2,
+    "name": "New User",
+    "email": "newuser@example.com"
+  },
+  "message": "Created successfully"
+}
+```
+
+---
+
+## 🛠️ 4. Update User
+
+**Request:**  
+`PUT /api/v1/users/{id}`
+
+**Request Body:**
+```json
+{
+  "name": "Updated Name",
+  "email": "updated@example.com"
+}
+```
+
+**Response:**
+```json
+{
+  "id": 1,
+  "name": "Updated Name",
+  "email": "updated@example.com"
+}
+```
+
+**Error Response (404):**
+```json
+{
+  "success": false,
+  "message": "Not found"
+}
+```
+
+---
+
+## ❌ 5. Delete User
+
+**Request:**  
+`DELETE /api/v1/users/{id}`
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Deleted successfully"
+}
+```
+
+**Error Response (404):**
+```json
+{
+  "success": false,
+  "message": "Not found"
+}
+```
+
+---
+
+## 🛡️ Authentication
+
+All routes are protected by JWT. You must pass `Authorization: Bearer {token}` in the request headers.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
