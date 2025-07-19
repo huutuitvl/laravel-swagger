@@ -1,3 +1,30 @@
+
+## 📄 API Documentation (Swagger)
+
+This project uses [Swagger UI](https://swagger.io/tools/swagger-ui/) to automatically generate interactive API documentation.
+
+🔗 **Access Swagger UI here**:
+
+```
+http://localhost:8000/api/documentation
+```
+
+> Replace `localhost:8000` with your actual domain in production.
+
+To regenerate Swagger docs after modifying routes or annotations, run:
+
+```bash
+php artisan l5-swagger:generate
+```
+
+If the documentation doesn't show up, ensure you've published the config:
+
+```bash
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+```
+
+Also, verify the `config/l5-swagger.php` file for route and path settings.
+
 # 📘 User API Documentation
 
 This module handles all user-related operations through RESTful API endpoints.
